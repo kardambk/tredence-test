@@ -2,7 +2,7 @@
 
 ## External APIs
 ### POST - ```http://localhost:2000/query/S-1000/1?category=Milk&brand=Juice&productId=MJ-373746711&sortBy=category&order=desc```
-
+#### All query parameters are optional.
 ## Internel APIs
 ### POST - ```http://localhost:2000/product```
 #### Headers: ```Content-Type - application/json```
