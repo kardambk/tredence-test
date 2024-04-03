@@ -1,5 +1,29 @@
 # tredence-test
 
+## Query to create Product table
+```
+DROP TABLE IF EXISTS `tredencedb`.`product`;
+CREATE TABLE  `tredencedb`.`product` (
+  `product_id` varchar(100) NOT NULL,
+  `category` varchar(100) NOT NULL,
+  `brand` varchar(100) NOT NULL,
+  PRIMARY KEY (`product_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+```
+## Query to create Shopper table
+```
+DROP TABLE IF EXISTS `tredencedb`.`shopper_product`;
+CREATE TABLE  `tredencedb`.`shopper_product` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `shopper_id` varchar(100) NOT NULL,
+  `relevancy_score` double NOT NULL,
+  `product_id` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_shopper_product_1` (`product_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+```
+### DB backup is also pushed to repo if needed.
+
 ## External APIs
 ### POST - ```http://localhost:2000/query/S-1000/1?category=Milk&brand=Juice&productId=MJ-373746711&sortBy=category&order=desc```
 #### All query parameters are optional.
